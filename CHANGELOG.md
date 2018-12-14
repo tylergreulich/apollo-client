@@ -27,6 +27,10 @@
   [@danilobuerger](https://github.com/danilobuerger) in [#4214](https://github.com/apollographql/apollo-client/pull/4214)  <br/>
   [@stubailo](https://github.com/stubailo) in [#4220](https://github.com/apollographql/apollo-client/pull/4220)
 
+- The `apollo-client` package no longer exports a `printAST` function from
+  `graphql/language/printer`. If you need this functionality, import it
+  directly: `import { print } from "graphql/language/printer"`
+
 ### Apollo Utilities (vNext)
 
 - Transformation utilities have been refactored to work with `graphql` 14.x.
@@ -48,8 +52,6 @@
   [@justinanastos](https://github.com/justinanastos) in [#4187](https://github.com/apollographql/apollo-client/pull/4187)  <br/>
   [@PowerKiKi](https://github.com/PowerKiKi) in [#3693](https://github.com/apollographql/apollo-client/pull/3693)  <br/>
   [@nandito](https://github.com/nandito) in [#3865](https://github.com/apollographql/apollo-client/pull/3865)
-
-### Apollo Utilities (1.0.27)
 
 - Schema/AST tranformation utilities have been updated to work properly with
   `@client` directives.  <br/>
