@@ -37,6 +37,24 @@
   GraphQL AST's are no longer being directly modified.  <br/>
   [@hwillson](https://github.com/hwillson) in [#4233](https://github.com/apollographql/apollo-client/pull/4233)
 
+- The `flattenSelections` helper function is no longer exported from
+  `apollo-utilities`, since `getDirectiveNames` has been reimplemented
+  without using `flattenSelections`, and `flattenSelections` has no clear
+  purpose now. If you need the old functionality, use a visitor:
+  ```ts
+  import { visit } from "graphql/language/visitor";
+
+  function flattenSelections(selection: SelectionNode) {
+    const selections: SelectionNode[] = [];
+    visit(selection, {
+      SelectionSet(ss) {
+        selections.push(...ss.selections);
+      }
+    });
+    return selections;
+  }
+  ```
+
 ### Apollo Cache In-Memory (vNext)
 
 - Export the optimism `wrap` function using ES2015 export syntax, instead of
